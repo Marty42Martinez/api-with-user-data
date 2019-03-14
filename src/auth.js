@@ -5,9 +5,9 @@ const ui = new firebaseui.auth.AuthUI(auth);
 ui.start('#auth-ui', {
    signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
    ],
-   signInSuccessUrl: './',
+   signInSuccessUrl: '/',
    callbacks: { 
       signInSuccessWithAuthResult(authResult) {
          const user = authResult.user;
@@ -17,6 +17,7 @@ ui.start('#auth-ui', {
                displayName: user.displayName,
                photoURL: user.photoURL
             });
+         return true;
       }
    }
 });

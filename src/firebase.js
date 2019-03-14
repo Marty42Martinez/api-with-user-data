@@ -1,4 +1,3 @@
-
 var config = {
    apiKey: 'AIzaSyBcTjf8rq1TXKUnppvuMaBGg0mKxveJNds',
    authDomain: 'rick-morty-favorites.firebaseapp.com',
