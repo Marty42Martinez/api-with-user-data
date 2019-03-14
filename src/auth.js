@@ -12,7 +12,11 @@ ui.start('#auth-ui', {
       signInSuccessWithAuthResult(authResult) {
          const user = authResult.user;
          usersRef.child(user.uid)
-         //.set!!
+            .set({
+               userID: user.uid,
+               displayName: user.displayName,
+               photoURL: user.photoURL
+            });
       }
    }
 });
