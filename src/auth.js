@@ -8,9 +8,11 @@ ui.start('#auth-ui', {
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
    ],
    signInSuccessUrl: './',
-   callbacks: { signInSuccessWithAuthResult(authResult) {
-      const user = authResult.user;
-      usersRef.child(user.uid)
-   }
+   callbacks: { 
+      signInSuccessWithAuthResult(authResult) {
+         const user = authResult.user;
+         usersRef.child(user.uid)
+         //.set!!
+      }
    }
 });
