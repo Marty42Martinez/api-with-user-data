@@ -31,15 +31,25 @@ const headerNode = document.getElementById('header');
 export default function loadHeader(options) {
 
    const staticHeader = makeStaticHeader();
+   headerNode.appendChild(staticHeader);
+   
    if(options && options.skipAuth) {
-      headerNode.appendChild(staticHeader);
       return;
    }
 
-   const fullHeaderNode = staticHeader.querySelector('.header-container');
-
+   const fullHeaderNode = headerNode.querySelector('.header-container');
    auth.onAuthStateChanged(user => {
-      
+      if(user) {
+         const userDom = makeProfileDisplay(user);
+         const signOutButton = userDom.querySelector('input');
+
+         signOutButton.addEventListener('click', () => {
+            auth.signOut();
+         });
+         fullHeaderNode.appendChild(userDom);
+      } else {
+         window.location = './auth.html';
+      }
    });
 
 

@@ -1,14 +1,14 @@
-#header {
+.header-container {
    display: flex;
    justify-content: space-between;
    align-items: center;
 }
 
-#header img {
+.header-container img {
    height: 200px;
 }
 
-#header h1 {
+.header-container h1 {
    flex-grow: 1;
    font-size: 40px;
 }
